@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Results</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .correct { color: green; }
+        .wrong { color: red; }
+        .question { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+<h1>Your Score: {{ score }} / {{ total }}</h1>
+
+{% for r in results %}
+<div class="question">
+    <p><b>{{ loop.index }}. {{ r.question|safe }}</b></p>
+    <p>Your answer: 
+        {% if r.is_correct %}
+            <span class="correct">{{ r.user_answer|safe }} ✔</span>
+        {% else %}
+            <span class="wrong">{{ r.user_answer|safe }} ✖</span>
+        {% endif %}
+    </p>
+    {% if not r.is_correct %}
+    <p>Correct answer: <span class="correct">{{ r.correct_answer|safe }}</span></p>
+    {% endif %}
+</div>
+{% endfor %}
+
+<a href="/quiz"><button>Try Again</button></a>
+<a href="/"><button>Home</button></a>
+
+</body>
+</html>
