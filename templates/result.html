@@ -4,11 +4,104 @@
     <meta charset="UTF-8">
     <title>Quiz Results</title>
     <style>
-        body { font-family: Arial; margin: 20px; }
-        .correct { color: green; }
-        .wrong { color: red; }
-        .question { margin-bottom: 20px; }
-    </style>
+/* BODY */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* MAIN TITLE */
+h1 {
+    margin-top: 30px;
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    background: linear-gradient(90deg, #00f5ff, #ff00cc, #ffe600);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s infinite alternate;
+}
+
+/* GLOW ANIMATION */
+@keyframes glow {
+    from { filter: drop-shadow(0 0 5px #00f5ff); }
+    to { filter: drop-shadow(0 0 20px #ff00cc); }
+}
+
+/* RESULT BOX */
+.question {
+    width: 90%;
+    max-width: 800px;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.question:hover {
+    transform: scale(1.02);
+    background: rgba(255,255,255,0.12);
+}
+
+/* QUESTION TEXT */
+.question p {
+    font-size: 1.1rem;
+}
+
+/* CORRECT ANSWER */
+.correct {
+    color: #00ff88;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+/* WRONG ANSWER */
+.wrong {
+    color: #ff4d4d;
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff4d4d;
+}
+
+/* BUTTONS */
+button {
+    margin: 10px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #ff00cc, #3333ff);
+    color: white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+}
+
+/* BUTTON WRAPPER (CENTER FIX) */
+a {
+    text-decoration: none;
+}
+
+/* SCORE BOX EFFECT */
+h1::after {
+    content: " 🎯";
+}
+</style>    
 </head>
 <body>
 
